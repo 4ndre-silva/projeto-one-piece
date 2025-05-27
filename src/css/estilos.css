@@ -163,25 +163,3 @@ main .personagem .imagem {
 .personagem.selecionado .imagem {
     animation: scaleIn 0.5s ease-out;
 }
-
-/* Tooltip */
-.botoes .botao::after {
-    content: attr(aria-label);
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: var(--cor-texto);
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 14px;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transicao-padrao);
-    right: 100%;
-    margin-right: 10px;
-}
-
-.botoes .botao:hover::after {
-    opacity: 1;
-    visibility: visible;
-}
