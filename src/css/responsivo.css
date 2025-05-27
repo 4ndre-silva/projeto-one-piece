@@ -98,6 +98,7 @@
 @media (max-width: 768px) {
     .conteudo {
         padding: 15px;
+        padding-bottom: 80px;
     }
 
     .conteudo .logo {
@@ -140,6 +141,7 @@
 @media (max-width: 480px) {
     .conteudo {
         padding: 10px;
+        padding-bottom: 80px;
     }
 
     .conteudo .logo {
@@ -187,6 +189,7 @@
 
     .conteudo {
         padding: 15px 10px;
+        padding-bottom: 80px;
     }
 
     .conteudo .logo {
