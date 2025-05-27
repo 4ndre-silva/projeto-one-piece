@@ -9,6 +9,7 @@
         max-width: 90%;
         min-height: auto;
         padding: 20px;
+        padding-bottom: 20px;
         position: relative;
         justify-content: flex-start;
         top: 0;
@@ -51,7 +52,7 @@
         padding: 15px 10px;
         gap: 10px;
         z-index: 3;
-        margin-top: 20px;
+        margin-top: 10px;
         background-color: rgba(0, 0, 0, 0.5);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         min-height: auto;
@@ -98,7 +99,7 @@
 @media (max-width: 768px) {
     .conteudo {
         padding: 15px;
-        padding-bottom: 80px;
+        padding-bottom: 20px;
     }
 
     .conteudo .logo {
@@ -141,7 +142,7 @@
 @media (max-width: 480px) {
     .conteudo {
         padding: 10px;
-        padding-bottom: 80px;
+        padding-bottom: 20px;
     }
 
     .conteudo .logo {
@@ -189,7 +190,7 @@
 
     .conteudo {
         padding: 15px 10px;
-        padding-bottom: 80px;
+        padding-bottom: 20px;
     }
 
     .conteudo .logo {
@@ -237,7 +238,7 @@
 @media (max-width: 320px) {
     .conteudo {
         padding: 10px 5px;
-        padding-bottom: 80px;
+        padding-bottom: 20px;
     }
 
     .conteudo .logo {
