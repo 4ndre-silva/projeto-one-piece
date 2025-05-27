@@ -1,34 +1,32 @@
-body {
-    background-color: #000000;   
-    overflow: hidden; 
+:root {
+    --cor-fundo: #000000;
+    --cor-texto: #ffffff;
+    --cor-botao-hover: rgba(255, 255, 255, 0.1);
+    --transicao-padrao: all 0.3s ease-in-out;
+    --escala-selecionado: 1.2;
 }
 
-main::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    min-height: 100vh;
-    width: 80vw;
-
-    background: linear-gradient(  
-        -233deg, #000 40%, rgba(0, 0, 
-        0, 0) 65%) no-repeat;
+body {
+    background-color: var(--cor-fundo);
 }
 
 main .personagem {
     display: none;
     height: 100vh;
+    opacity: 0;
+    transition: var(--transicao-padrao);
 }
 
 main .personagem.selecionado {
     display: block;
+    opacity: 1;
 }
 
 main .personagem .imagem {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: var(--transicao-padrao);
 }
 
 .conteudo {
@@ -41,10 +39,18 @@ main .personagem .imagem {
     min-height: 100vh;
     max-width: 380px;
     z-index: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transicao-padrao);
+}
+
+.personagem.selecionado .conteudo {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .conteudo .nome-personagem {
-    color: #ffffff;
+    color: var(--cor-texto);
     font-size: 48px;
     font-family: "secular one";
     font-weight: 400;
@@ -52,7 +58,7 @@ main .personagem .imagem {
 }
 
 .conteudo .descricao {
-    color: #ffffff;
+    color: var(--cor-texto);
     font-family: "rubik";
     line-height: 26px;
 }
@@ -69,7 +75,6 @@ main .personagem .imagem {
     position: fixed;
     top: 0;
     right: 0;
-
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -77,9 +82,13 @@ main .personagem .imagem {
     justify-content: center;
     align-items: center;
     gap: 5px;
-    background-color: rgba(0, 0, 0,
-        0.3
-    );
+    padding: 20px 0;
+}
+
+.botoes ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .botoes .botao {
@@ -87,14 +96,92 @@ main .personagem .imagem {
     background: none;
     cursor: pointer;
     border-radius: 50%;
+    transition: var(--transicao-padrao);
+}
+
+.botoes .botao:hover {
+    background-color: var(--cor-botao-hover);
+    transform: scale(1.1);
 }
 
 .botoes .botao img {
     width: 50px;
     border-radius: 50%;
+    transition: var(--transicao-padrao);
 }
 
 .botoes .botao.selecionado {
-    transform: scale(1.2);
-    /* box-shadow: 0 0 10px #D9D9D9; */
+    transform: scale(var(--escala-selecionado));
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.voltar-topo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--cor-texto);
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transicao-padrao);
+    z-index: 1000;
+}
+
+.voltar-topo:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.personagem.selecionado .imagem {
+    animation: scaleIn 0.5s ease-out;
+}
+
+/* Tooltip */
+.botoes .botao::after {
+    content: attr(aria-label);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--cor-texto);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transicao-padrao);
+    right: 100%;
+    margin-right: 10px;
+}
+
+.botoes .botao:hover::after {
+    opacity: 1;
+    visibility: visible;
 }
